@@ -1,9 +1,16 @@
 
+import { Outlet } from "react-router-dom";
+import Nav from "../Nav and Footer/Nav";
+
 
 const Home = () => {
     return (
-        <div>
-            <h1>This is Home</h1>
+        <div className="max-w-7xl mx-auto ">
+            
+            <Nav></Nav>
+            
+
+            <Outlet></Outlet>
         </div>
     );
 };
