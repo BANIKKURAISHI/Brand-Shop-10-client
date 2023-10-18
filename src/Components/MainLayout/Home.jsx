@@ -1,6 +1,7 @@
 
 import { Outlet } from "react-router-dom";
 import Nav from "../Nav and Footer/Nav";
+import Banner from "../Pages/Banner";
 
 
 const Home = () => {
@@ -8,9 +9,9 @@ const Home = () => {
         <div className="max-w-7xl mx-auto ">
             
             <Nav></Nav>
-            
+            <Banner></Banner>
 
-            <Outlet></Outlet>
+            <Outlet></Outlet> 
         </div>
     );
 };
