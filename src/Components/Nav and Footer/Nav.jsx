@@ -9,6 +9,7 @@ const Nav = () => {
   <NavLink to="/add" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "p-3 text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-red-500  mr-4  rounded-md text-center" : "rounded-md text-center text-2xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 mr-4 hover:text-blue-800  uppercase "}>Add Product</NavLink>
   <NavLink to="/cart" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "p-3 text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-red-500  mr-4 rounded-md text-center" : "rounded-md text-center text-2xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 mr-4 hover:text-blue-800 uppercase "}>My Cart</NavLink>
   <NavLink to="/in" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "p-3 text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-red-500  mr-4 rounded-md text-center" : "rounded-md text-center text-2xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 mr-4 hover:text-blue-800  uppercase "}>Login</NavLink>
+  <NavLink to="/reg" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "p-3 text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-red-500  mr-4 rounded-md text-center" : "rounded-md text-center text-2xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 mr-4 hover:text-blue-800  uppercase "}>SingUp</NavLink>            
                  </div>
     return (
         <div className="max-w-7xl mx-auto mt-2    ">
@@ -24,6 +25,7 @@ const Nav = () => {
             <NavLink to="/add" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "p-3 text-xl font-bold text-white bg-gradient-to-r from-green-400 to-red-500  mr-4   my-3 rounded-md text-center" : "rounded-md text-center my-3text-xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 mr-4 hover:text-blue-800  uppercase "}>Add Product</NavLink>
             <NavLink to="/cart" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "p-3 text-xl font-bold text-white bg-gradient-to-r from-green-400 to-red-500  mr-4  my-3 rounded-md text-center" : "rounded-md text-center my-3 text-xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 mr-4 hover:text-blue-800 uppercase "}>My Cart</NavLink>
             <NavLink to="/in" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "p-3 text-xl font-bold text-white bg-gradient-to-r from-green-400 to-red-500  mr-4  my-3 rounded-md text-center" : "rounded-md text-center my-3 text-xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 mr-4 hover:text-blue-800  uppercase "}>Login</NavLink>
+            <NavLink to="/reg" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "p-3 text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-red-500  mr-4 rounded-md text-center" : "rounded-md text-center text-2xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 mr-4 hover:text-blue-800  uppercase "}>SingUp</NavLink>   
             </div> </div>}
             </ul>
             </div>
@@ -35,7 +37,7 @@ const Nav = () => {
             </div>
            
             <div className="navbar-center hidden md:flex text-end lg:text-center ">
-            <ul className="menu menu-horizontal px-1 my-5 ml-20">
+            <ul className="menu menu-horizontal px-1 my-5 ml-5 ">
             {/* <div className="form-control  flex  flex-row">
             <input type="text" placeholder="Search....." className="input input-bordered w-24 h-16 rounded-md md:w-auto" />
            
@@ -43,7 +45,7 @@ const Nav = () => {
             {links}
             </ul>
             </div>
-            <div className="navbar-end ml-32 my-5">
+            <div className="navbar-end  my-5 ml-16">
             <a className="btn my-5 rounded-md text-center  text-xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 mr-4 hover:text-blue-800  uppercase ">Button</a>
             </div>
             </div>
