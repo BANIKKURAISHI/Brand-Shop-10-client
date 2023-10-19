@@ -8,9 +8,12 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Log = () => {
 /////google log in-----------------------------
- const {googleLogin}=useContext(AuthContext)
+ const {googleLogin,login}=useContext(AuthContext)
 
     const googleButton =()=>{
+       
+       
+        // google-----------------------log in button ------------------------------------
         googleLogin()
         .then(result=>{
             const user=result.user
@@ -19,10 +22,31 @@ const Log = () => {
         })
         .catch(error=>{
             const errorCode = error.code;
-                const errorMessage = error.message;
-                toast(errorCode ,errorMessage )
+            const errorMessage = error.message;
+            toast(errorCode ,errorMessage )
+        })}
+
+     // user ---------------------------log in button -------------------------------------   
+     const loginButton=(e)=>{
+        e.preventDefault()
+        const form = new FormData(e.currentTarget)
+        const email=form.get('email')
+        const password= form.get('password')
+        console.log(email,password)
+        login(email,password)
+        .then(result=>{
+            const user=result.user 
+            console.log(user)
+            toast('Log in success full ')
         })
-    }
+        .catch(error=>{
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            toast(errorCode ,errorMessage )
+        })
+     }
+
+    
    
     return(
         <div className="max-w-7xl mx-auto ">
@@ -39,18 +63,18 @@ const Log = () => {
         <h1 className="text-center  text-4xl text-blue-700 my-4 font-bold">Login Now</h1>
         </div>
         <div className="card  bg-base-100">
-        <form className="w-80  md:w-96 lg:w-96">
+        <form onSubmit={loginButton} className="w-80  md:w-96 lg:w-96">
         <div className="form-control">
         <label className="label">
         <span className="label-text text-xl">Email</span>
         </label>
-        <input type="email" placeholder="Enter your email" className="input border-2 rounded p-3 mt-3 w-96" required />
+        <input type="email" name="email" placeholder="Enter your email" className="input border-2 rounded p-3 mt-3 w-96" required />
         </div>
          <div className="form-control">
         <label className="label">
         <span className="label-text text-xl">Password</span>
         </label>
-        <input type="password" placeholder="password" className="input border-2 rounded p-3 mt-3 w-96" required />
+        <input type="password" name="password" placeholder="password" className="input border-2 rounded p-3 mt-3 w-96" required />
         </div>
          <div className="form-control mt-6">
         <button className="btn btn-primary p-3  bg-green-400 w-full rounded-md text-xl">Login</button>

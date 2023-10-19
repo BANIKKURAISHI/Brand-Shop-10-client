@@ -1,16 +1,59 @@
 import { Link } from "react-router-dom";
 import Nav from "../Nav and Footer/Nav";
+import { useContext } from "react";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { updateProfile } from "firebase/auth";
 
 
-const Reg = (e) => {
+const Reg = () => {
+    const {registration}=useContext(AuthContext)
+    
+    const singUpButton=(e)=>{
         e.preventDefault()
-        const form =e.target
-        const name=e.name.value 
-        const photo=e.photo.value
-        const email=form.email.value 
-        const password= form.password.value
-        console.log(email,password)
+        const form = new FormData(e.currentTarget)
+        const name=form.get('name')
+        const photo=form.get('photo')
+        const email=form.get('email')
+        const password= form.get('password')
+        console.log(email,password,photo,name)
+        if(password.length <6){
+            toast('You must should given valid password' )
+            return
+              }
+            else if (!/[A-Z0]/.test(password)){
+            toast('You must should given valid password' )
+            return 
+             }
+            else if (!/(?=.*[!@#$%^&*()_+])/.test(password)){
+             toast('You must should given valid password' )
+             return 
+             }
 
+   
+        registration(email,password)
+        .then(result=>{
+            const user=result.user 
+            console.log(user)
+            toast('Registration success full',)
+      
+           updateProfile(result.user,{
+            displayName:name ,photoURL:photo
+        })
+        .then(()=>{
+         toast("Profile is update")
+        })
+    })
+        .catch(error=>{
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            toast(errorCode ,errorMessage )
+        })
+
+        
+       
+    }
 
     return (
         <div className="max-w-7xl mx-auto ">
@@ -22,12 +65,12 @@ const Reg = (e) => {
             <h1 className="text-center  text-4xl text-white my-4 font-bold">Registration Now</h1>
             </div>
             <div className="card  bg-base-100">
-            <form className="w-80  md:w-96 lg:w-96">
+            <form onSubmit={singUpButton} className="w-80  md:w-96 lg:w-96">
             <div className="form-control">
             <label className="label">
             <span className="label-text text-xl">Name</span>
             </label>
-            <input type="name" placeholder="Enter your name" className="input border-2 rounded p-3 mt-3 w-96" required />
+            <input type="name" name="name" placeholder="Enter your name" className="input border-2 rounded p-3 mt-3 w-96" required />
             </div>
 
           
@@ -36,19 +79,19 @@ const Reg = (e) => {
             <label className="label">
             <span className="label-text text-xl">Email</span>
             </label>
-            <input type="email" placeholder="Enter your email" className="input border-2 rounded p-3 mt-3 w-96" required />
+            <input type="email" name="email" placeholder="Enter your email" className="input border-2 rounded p-3 mt-3 w-96" required />
             </div>
             <div className="form-control">
             <label className="label">
             <span className="label-text text-xl">Photo</span>
             </label>
-            <input type="url" placeholder="Enter your photo url" className="input border-2 rounded p-3 mt-3 w-96" required />
+            <input type="url" name="photo" placeholder="Enter your photo url" className="input border-2 rounded p-3 mt-3 w-96" required />
             </div>
             <div className="form-control">
             <label className="label">
             <span className="label-text text-xl">Password</span>
             </label>
-            <input type="password" placeholder="password" className="input border-2 rounded p-3 mt-3 w-96" required />
+            <input type="password" name="password" placeholder="password" className="input border-2 rounded p-3 mt-3 w-96" required />
         
             </div>
             
@@ -66,6 +109,7 @@ const Reg = (e) => {
             <img src="https://i.ibb.co/sKp5VMh/pngtree-colorful-register-now.png" alt="" />
             </div>
             </div>
+            <ToastContainer /> 
            </div>
     );
 };
