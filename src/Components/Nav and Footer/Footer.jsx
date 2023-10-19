@@ -2,7 +2,7 @@
 
 const Footer = () => {
     return (
-          <div className="max-w-7xl mx-auto my-10 rounded-b-lg bg-gradient-to-r from-green-400 to-red-500 text-black ">
+          <div className="max-w-7xl text-white mx-auto my-10 rounded-b-lg bg-gradient-to-r from-blue-400 to-red-500  ">
           <footer className="footer  p-10 bg-base-300 text-base-content grid grid-cols-3 ">
           <nav className="flex flex-col">
           <header className="footer-title text-2xl mb-2">Which is given</header> 

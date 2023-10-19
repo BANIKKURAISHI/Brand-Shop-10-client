@@ -13,7 +13,7 @@ const Nav = () => {
                  </div>
     return (
         <div className="max-w-7xl mx-auto mt-2    ">
-            <div className="navbar flex flex-col rounded-t-lg bg-gradient-to-r from-green-400 to-red-500 p-10 md:flex-row">
+            <div className="navbar flex flex-col rounded-t-lg bg-gradient-to-r from-blue-400 to-red-500 p-10 md:flex-row">
             <div className="navbar-start  flex flex-col md:flex-row ">
             <div onClick={()=>setOpen(!open)} className="dropdown lg:hidden">
             <label tabIndex={0} className="btn  ">

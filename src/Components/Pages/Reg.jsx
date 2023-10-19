@@ -2,7 +2,16 @@ import { Link } from "react-router-dom";
 import Nav from "../Nav and Footer/Nav";
 
 
-const Reg = () => {
+const Reg = (e) => {
+        e.preventDefault()
+        const form =e.target
+        const name=e.name.value 
+        const photo=e.photo.value
+        const email=form.email.value 
+        const password= form.password.value
+        console.log(email,password)
+
+
     return (
         <div className="max-w-7xl mx-auto ">
             <Nav></Nav>

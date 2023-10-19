@@ -5,6 +5,8 @@ import Footer from "../Nav and Footer/Footer";
 import AddProduct from "../Pages/AddProduct";
 import Log from "../Pages/Log";
 import Reg from "../Pages/Reg";
+import Brands from "../Pages/Brands";
+//import Brands from "../Pages/Brands";
 //import Reg from "../Pages/Reg";
 
 const myCreateRoute=createBrowserRouter([
@@ -12,12 +14,19 @@ const myCreateRoute=createBrowserRouter([
      path:"/",
      errorElement:<Error></Error>,
      element:<Home></Home>,
-     children:[{
-        path:"/",
-        element:<Footer></Footer>
-     },
-      
-   
+     loader:()=>fetch('http://localhost:5000/brand'),
+     children:[
+    
+   {
+      path:"/",
+      element:<Footer></Footer>,
+     
+   },
+   {
+      path:"/brand",
+      element:<Brands></Brands>,
+     
+   }
    
    ],
     
@@ -34,7 +43,12 @@ const myCreateRoute=createBrowserRouter([
      {
       path:"/reg",
       element:<Reg></Reg>
-      }
+      },
+    
+      
+        
+         
+         
   
 ])
 

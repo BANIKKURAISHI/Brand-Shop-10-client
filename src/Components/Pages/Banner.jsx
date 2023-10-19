@@ -12,7 +12,7 @@ const Banner = () => {
         );
       }, [])
     return (
-            <div className="flex flex-row bg-gradient-to-r from-green-400 to-red-500 ">
+            <div className="flex flex-row bg-gradient-to-r from-blue-400 to-red-500 ">
             <img src="https://i.ibb.co/vsGHDTQ/req-a-quote-1024x1024.png" className="h-[600px]" alt="" />
             <div className="  font-semibold text-justify my-40 text-white">
             <h1 className="text-black text-5xl" data-aos='fade-right' >Electronics Industry Solution</h1>
