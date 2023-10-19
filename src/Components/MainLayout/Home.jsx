@@ -1,6 +1,9 @@
 
 import { Outlet, useLoaderData} from "react-router-dom";
 import Home2 from "./Home2";
+import Brands from './../Pages/Brands';
+
+
 
 
 
@@ -26,8 +29,7 @@ const Home = () => {
                </div>)
             }
             </div>
-           
-
+            <Brands></Brands>
         <Outlet></Outlet> 
         
         </div>

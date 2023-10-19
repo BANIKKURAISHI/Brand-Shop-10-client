@@ -5,6 +5,8 @@ import Footer from "../Nav and Footer/Footer";
 import AddProduct from "../Pages/AddProduct";
 import Log from "../Pages/Log";
 import Reg from "../Pages/Reg";
+
+import PrivetRoute from "../AuthProvider/PrivetRoute";
 import Brands from "../Pages/Brands";
 //import Brands from "../Pages/Brands";
 //import Reg from "../Pages/Reg";
@@ -16,17 +18,17 @@ const myCreateRoute=createBrowserRouter([
      element:<Home></Home>,
      loader:()=>fetch('http://localhost:5000/brand'),
      children:[
-    
    {
       path:"/",
       element:<Footer></Footer>,
      
    },
    {
-      path:"/brand",
+      path:"/products",
       element:<Brands></Brands>,
-     
+      loader:()=>fetch('http://localhost:5000/products')
    }
+  
    
    ],
     
@@ -34,7 +36,7 @@ const myCreateRoute=createBrowserRouter([
     },
     {
         path:"/add",
-        element:<AddProduct></AddProduct>
+        element:<PrivetRoute><AddProduct></AddProduct></PrivetRoute>  
      },
      {
       path:"/in",

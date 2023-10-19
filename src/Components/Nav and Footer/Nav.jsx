@@ -1,18 +1,30 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 
 const Nav = () => {
   const [open,setOpen]=useState(false)
+  const {user,logOut}=useContext(AuthContext)
+  const logOutButton=()=>{
+    logOut()
+    .then(()=>toast('Logout success full'))
+    .catch(error=>{
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    toast(errorCode ,errorMessage )
+    })
+  }
   const links =<div>
-  <NavLink to="/" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "p-3 text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-red-500  mr-4 rounded-md text-center" : "rounded-md text-center text-2xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 mr-4 hover:text-blue-800  uppercase "}>Home</NavLink>
-  <NavLink to="/add" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "p-3 text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-red-500  mr-4  rounded-md text-center" : "rounded-md text-center text-2xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 mr-4 hover:text-blue-800  uppercase "}>Add Product</NavLink>
-  <NavLink to="/cart" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "p-3 text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-red-500  mr-4 rounded-md text-center" : "rounded-md text-center text-2xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 mr-4 hover:text-blue-800 uppercase "}>My Cart</NavLink>
-  <NavLink to="/in" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "p-3 text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-red-500  mr-4 rounded-md text-center" : "rounded-md text-center text-2xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 mr-4 hover:text-blue-800  uppercase "}>Login</NavLink>
-  <NavLink to="/reg" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "p-3 text-2xl font-bold text-white bg-gradient-to-r from-green-400 to-red-500  mr-4 rounded-md text-center" : "rounded-md text-center text-2xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 mr-4 hover:text-blue-800  uppercase "}>SingUp</NavLink>            
-                 </div>
+  <NavLink to="/" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "p-3 text-xl font-bold text-white bg-gradient-to-r from-green-400 to-red-500  mr-4 rounded-md text-center" : "rounded-md text-center text-xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 mr-4  "}>Home</NavLink>
+  <NavLink to="/add" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "p-3 text-xl font-bold text-white bg-gradient-to-r from-green-400 to-red-500  mr-4  rounded-md text-center" : "rounded-md text-center text-xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 mr-4  "}>Add Product</NavLink>
+  <NavLink to="/cart" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "p-3 text-xl font-bold text-white bg-gradient-to-r from-green-400 to-red-500  mr-4 rounded-md text-center" : "rounded-md text-center text-xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 mr-4  "}>My Cart</NavLink>
+  <NavLink to="/in" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "p-3 text-xl font-bold text-white bg-gradient-to-r from-green-400 to-red-500  mr-4 rounded-md text-center " : "rounded-md text-center text-xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 ml-1 mr-4  "}>Login</NavLink>
+  <NavLink to="/reg" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "p-3 text-xl font-bold text-white bg-gradient-to-r from-green-400 to-red-500  mr-4 rounded-md text-center " : "rounded-md text-center text-xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 ml-1 mr-4  "}>SingUp</NavLink>        
+ </div>
     return (
-        <div className="max-w-7xl mx-auto mt-2    ">
+        <div className="max-w-8xl mx-auto mt-2    ">
             <div className="navbar flex flex-col rounded-t-lg bg-gradient-to-r from-blue-400 to-red-500 p-10 md:flex-row">
             <div className="navbar-start  flex flex-col md:flex-row ">
             <div onClick={()=>setOpen(!open)} className="dropdown lg:hidden">
@@ -45,9 +57,58 @@ const Nav = () => {
             {links}
             </ul>
             </div>
-            <div className="navbar-end  my-5 ml-16">
-            <a className="btn my-5 rounded-md text-center  text-xl font-bold p-3 text-white bg-gradient-to-r from-green-400 to-blue-500 mr-4 hover:text-blue-800  uppercase ">Button</a>
-            </div>
+              
+
+
+        
+            
+
+            
+             
+             {user?
+             <div onClick={()=>setOpen(!open)} className="dropdown dropdown-end ml-20 my-1 rounded-xl shadow-xl">
+             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+             <div className="w-10  rounded-full">
+             <img className="rounded-full mx-20 my-1" src={user.photoURL} />
+             </div>
+             </label>
+             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+             {open && <div><li>
+             <h1 className="ml-1">{user.displayName}</h1>
+             <h1 className="text-xs">{user.email}</h1>
+             <button className="mx-16 bg-gradient-to-r from-green-400 to-blue-500  p-1  text-center  text-white rounded-md text-red text-xl font-medium" onClick={logOutButton}>Logout</button>
+             </li>
+             </div>}
+             
+             </ul>
+             </div>:
+             <div className="ml-20 my-6">
+             <NavLink to="/in" className={({ isActive, isPending }) => isPending ? "pending" : isActive ?
+              "bg-rose-700   text-white text-center rounded-md text-red text-xl font-medium p-3 ml-28 my-3 ":"text-center text-xl font-medium  text-white bg-red-600  rounded-md p-3 mr-2 my-3"}>Login</NavLink>
+             </div>
+             }
+
+
+
+            {
+                  
+           
+            // user?<div className="text-center md:text-end">
+            
+            // <div className="flex flex-col md:flex-row">
+            
+            
+            
+            // </div>
+         
+          
+        //   </div>: 
+      
+      
+       
+        
+        
+  }
             </div>
 
 

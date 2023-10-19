@@ -8,7 +8,6 @@ const Home2 = () => {
         <div>
             <Nav></Nav>
             <Banner></Banner>
-           
         </div>
     );
 };
