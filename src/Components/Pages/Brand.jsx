@@ -1,20 +1,18 @@
 import PropTypes from 'prop-types';
 
 const Brand = ({load}) => {
-    const {name,brand,img}=load
+    const {name,brand,image,price}=load
     return (
-        <div>
-           <div className="card card-compact w-96 bg-base-100 shadow-xl">
-           <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+           <div>
+           <div className="card  rounded-xl w-72 bg-base-100 shadow-2xl  bg-gradient-to-r from-blue-400 to-red-400">
+           <figure><img className='w-full h-52 rounded-t-xl' src={image} alt="Shoes" /></figure>
            <div className="card-body">
-           <h2 className="card-title">Shoes!</h2>
-           <p>If a dog chews shoes whose shoes does he choose?</p>
-           <div className="card-actions justify-end">
-           <button className="btn btn-primary">Buy Now</button>
+           <h2 className="card-title">{name}</h2>
+           <p>{brand}</p>
+           <h1>{price}</h1>
            </div>
            </div>
-           </div>
-        </div>
+          </div>
     );
 };
 Brand.propTypes={

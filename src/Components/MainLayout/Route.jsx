@@ -8,6 +8,7 @@ import Reg from "../Pages/Reg";
 
 import PrivetRoute from "../AuthProvider/PrivetRoute";
 import Brands from "../Pages/Brands";
+
 //import Brands from "../Pages/Brands";
 //import Reg from "../Pages/Reg";
 
@@ -23,12 +24,8 @@ const myCreateRoute=createBrowserRouter([
       element:<Footer></Footer>,
      
    },
-   {
-      path:"/products",
-      element:<Brands></Brands>,
-      loader:()=>fetch('http://localhost:5000/products')
-   }
-  
+   
+   
    
    ],
     
@@ -47,7 +44,16 @@ const myCreateRoute=createBrowserRouter([
       element:<Reg></Reg>
       },
     
-      
+      {
+         path:"/products/:brand",
+         element:<Brands></Brands>,
+         loader:()=>fetch('http://localhost:5000/products')
+      },
+      // {
+      //    path:'/update/:id',
+      //    element:<Update></Update>,
+      //    loader:({params})=>fetch(`http://localhost:5000/coffee/${params.id}`)
+      //   },
         
          
          

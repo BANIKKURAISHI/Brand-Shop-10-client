@@ -3,9 +3,12 @@ import Banner from "../Pages/Banner";
 
 
 
+
+
 const Home2 = () => {
     return (
         <div>
+            
             <Nav></Nav>
             <Banner></Banner>
         </div>

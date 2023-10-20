@@ -59,12 +59,12 @@ const Reg = () => {
         <div className="max-w-7xl mx-auto ">
             <Nav></Nav>
             <div className="flex flex-row">
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero -mx-40 ">
             <div className="hero-content flex-col ">
             <div className="text-center ">
-            <h1 className="text-center  text-4xl text-white my-4 font-bold">Registration Now</h1>
+            <h1 className="text-center  text-4xl text-black my-4 font-bold">Registration Now</h1>
             </div>
-            <div className="card  bg-base-100">
+            <div className="card  ">
             <form onSubmit={singUpButton} className="w-80  md:w-96 lg:w-96">
             <div className="form-control">
             <label className="label">
@@ -105,7 +105,7 @@ const Reg = () => {
             </div>
             </div>
             </div>
-            <div className="ml-16 -mt-16">
+            <div className="ml-16 -mt-10">
             <img src="https://i.ibb.co/sKp5VMh/pngtree-colorful-register-now.png" alt="" />
             </div>
             </div>

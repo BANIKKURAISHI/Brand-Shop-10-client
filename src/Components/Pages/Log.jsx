@@ -57,12 +57,12 @@ const Log = () => {
         <div className="mr-16 ">
         <img src="https://i.ibb.co/FXjKNhP/Login.jpg" alt="" />
         </div>
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero ">
         <div className="hero-content flex-col ">
         <div className="text-center ">
         <h1 className="text-center  text-4xl text-blue-700 my-4 font-bold">Login Now</h1>
         </div>
-        <div className="card  bg-base-100">
+        <div className="card  ">
         <form onSubmit={loginButton} className="w-80  md:w-96 lg:w-96">
         <div className="form-control">
         <label className="label">
