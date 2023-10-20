@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import {  useLoaderData } from "react-router-dom";
 import Brand from "./Brand";
 import { useEffect, useState } from "react";
 
@@ -14,11 +14,13 @@ const Brands = () => {
     return (
         <div>
         <h1>Our products </h1>
+        
         <div className="grid gap-10 grid-cols-1  md:grid-cols-2 lg:grid-cols-4">
         {
          products.map(load=><Brand key={load._id} load={load}></Brand>)   
         }
         </div>
+    
         </div>
     );
 };
