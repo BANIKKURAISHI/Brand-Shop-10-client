@@ -4,14 +4,20 @@
 
 
 //import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Slide from "../Pages/Slide";
 import Nav from "../Nav and Footer/Nav";
 import { MdStarRate ,MdOutlineStarRate} from "react-icons/md"
 import { AiFillDollarCircle } from "react-icons/ai"
+
+// import { ToastContainer, toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
+
+
 const Filter = () => {
     
     const data=useLoaderData()
+    
     //console.log(data)
     // const [filterItems,setFilterItems]=useState(data)
     // const {brand}=data 
@@ -33,8 +39,8 @@ const Filter = () => {
         
         <div className="grid gap-10 my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           
-        { data.map(product=><div key={product._id}>
-        <div className="card w-80 bg-black shadow-xl  text-white">
+        {data.map(product=><div key={product._id}>
+           <div className="card w-80 bg-black shadow-xl  text-white">
            <figure><img className='w-80 h-60' src={product.image}alt="Shoes" /></figure>
            <div className="card-body">
             <div className='flex flex-row justify-between'>
@@ -44,8 +50,10 @@ const Filter = () => {
             </div>
             <div className="flex flex-row justify-around">
             <h1 className='text-xl'>{product.type}</h1>
-            <p className='text-xl ml-16 flex flex-row'><span className="my-1"><AiFillDollarCircle></AiFillDollarCircle></span>{product.price}</p>
-            
+            <p className='text-xl ml-16 flex flex-row'>
+            <span className="my-1">
+            <AiFillDollarCircle></AiFillDollarCircle>
+            </span>{product.price}</p>
             </div>
             
             
@@ -62,13 +70,14 @@ const Filter = () => {
            </div>
            
            <div className="card-actions justify-start">
-           <button className="badge badge-outline">Details</button> 
-           <button className="badge badge-outline">Update</button>
+           <Link to={`/product/${product._id}`}><button className="badge badge-outline">Details</button></Link>
+           <Link to={`/update/${product._id}`}> <button className="badge badge-outline">Update</button> </Link>
            </div>
            </div>
            </div>
         </div>)}
         </div>
+       
        </div>
     );
 };

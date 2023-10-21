@@ -83,17 +83,19 @@ const Nav = () => {
             
              
              {user?
-             <div onClick={()=>setOpen(!open)} className="dropdown dropdown-end ml-20 my-1 rounded-xl shadow-xl">
-             <label tabIndex={0} className="btn btn-ghost btn-circle avatar mx-20">
+             <div onClick={()=>setOpen(!open)} className="dropdown dropdown-end ml-20 my-1 rounded-xl ">
+             <label tabIndex={0} className="btn btn-circle avatar -mx-16 lg:mx-20">
              <div className="w-10  rounded-full">
-             <img className="rounded-full  mx-20 my-1" src={user.photoURL} />
+             
              </div>
              </label>
              <ul tabIndex={0} className="menu  menu-sm dropdown-content mt-3 z-[1] p-2  bg-inherit rounded-box w-52">
-             {open && <div><li>
-             <h1 className="ml-1">{user.displayName}</h1>
-             <h1 className="-mx-2 text-xs">{user.email}</h1>
-             <button className="mx-16 bg-gradient-to-r from-green-400 to-blue-500  p-1  text-center  text-white rounded-md text-red text-xl font-medium" onClick={logOutButton}>Logout</button>
+             {open && <div className="-my-[124px] p-1 -mx-10 rounded-lg bg-gradient-to-r from-blue-400 to-red-500 text-white md:  lg:-mx-2 "><li>
+             
+             <img className="rounded-full w-16 h-16 my-1  mx-16 lg:my-1" src={user.photoURL} />
+             <h1 className="ml-0">{user.displayName}</h1>
+             <h1 className="-mx-2 -my-1 text-xs">{user.email}</h1>
+             <button className="mx-12 w-1/3 bg-gradient-to-r from-green-400 to-blue-500  p-2  text-center  text-white rounded-md text-red text-xl font-medium lg:mx-16 " onClick={logOutButton}>Logout</button>
              </li>
              </div>}
              

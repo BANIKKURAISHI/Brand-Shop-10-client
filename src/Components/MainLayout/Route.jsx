@@ -9,6 +9,11 @@ import Reg from "../Pages/Reg";
 import PrivetRoute from "../AuthProvider/PrivetRoute";
 import Brands from "../Pages/Brands";
 import Filter from "./Filter";
+import Details from "../Pages/Details";
+
+
+import Update from "./Update";
+import Card from "./Card";
 
 //import Brands from "../Pages/Brands";
 //import Reg from "../Pages/Reg";
@@ -55,13 +60,25 @@ const myCreateRoute=createBrowserRouter([
          element:<Filter></Filter>,
          loader:({params})=>fetch(`http://localhost:5000/products/${params.brand}`)
       },
-      // {
-      //    path:'/update/:id',
-      //    element:<Update></Update>,
-      //    loader:({params})=>fetch(`http://localhost:5000/coffee/${params.id}`)
-      //   },
+        
+
+      {
+         path:"/product/:id",
+         element:<Details></Details>,
+         loader:({params})=>fetch(`http://localhost:5000/product/${params.id}`)
+      },
        
-         
+      {
+         path:'/update/:id',
+         element:<Update></Update>,
+         loader:({params})=>fetch(`http://localhost:5000/product/${params.id}`)
+      }, 
+      {
+         path:'/cart',
+         element:<Card></Card>,
+         loader:()=>fetch('http://localhost:5000/carts')
+        
+      }, 
   
 ])
 

@@ -1,33 +1,30 @@
 import PropTypes from 'prop-types';
+import { AiFillDollarCircle } from 'react-icons/ai';
 
 
 const Brand = ({load}) => {
-    const {name,brand,image,price,type}=load
+    const {name,image,price}=load
 
 
     return (
          
-           <div>
+           <div className='max-w-7xl mx-auto'>
           
-           <div className="card w-80 bg-black shadow-xl  text-white">
-           <figure><img className='w-80 h-60' src={image}alt="Shoes" /></figure>
+           <div className="card w-72 h-72 bg-black shadow-xl  text-white">
+           <figure><img className='w-full h-60 rounded-t-xl' src={image}alt="Shoes" /></figure>
            <div className="card-body">
             <div className='flex flex-row'>
-            <h2 className="card-title mr-3">
-            {name}</h2>
-            <h2 className="badge badge-secondary ">{brand}</h2>
+            <h2 className="card-title  mr-3">{name}</h2>
+           
             </div>
          
            
-           <div className='flex flex-row justify-between flex-grow'>
-           <h1 className='mr-8 text-2xl'>{type}</h1>
-           <p className='ml-8 text-2xl'>{price}</p>
+           <div className='flex flex-row '>
+           <AiFillDollarCircle className=' text-2xl my-1 mr-2'></AiFillDollarCircle>
+           <p className='text-2xl'>{price}</p>
            </div>
            
-           <div className="card-actions justify-start">
-           <button className="badge badge-outline">Details</button> 
-           <button className="badge badge-outline">Update</button>
-           </div>
+           
            </div>
            </div>
            
