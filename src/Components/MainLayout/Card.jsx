@@ -1,11 +1,52 @@
-import { useLoaderData } from "react-router-dom";
-
+import { useState } from "react";
+import { useLoaderData, } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Card = () => {
    const load=useLoaderData()
-    console.log(load)
-    const deleteButton=()=>{
-    console.log('complete delete')
+   console.log(load)
+   const [loads,setLoads]=useState(load)
+
+    const deleteButton=_id=>{
+        console.log(_id)
+    
+
+
+    
+     Swal.fire({
+         title: 'Are you sure?',
+         text: "You won't be able to revert this!",
+         icon: 'warning',
+         showCancelButton: true,
+         confirmButtonColor: '#3085d6',
+         cancelButtonColor: '#d33',
+         confirmButtonText: 'Yes, delete it!'
+       }).then((result) => {
+         if (result.isConfirmed)
+         console.log('delete confirm ')
+        fetch(`http://localhost:5000/carts/${_id}`,{
+          method:"DELETE"
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          console.log(data)
+          if(data.deletedCount>0){
+            Swal.fire(
+              'Deleted!',
+              'Your coffee has been deleted.',
+              'success'
+            )
+          const deleted=load.filter((item=>item._id!==_id))
+          setLoads(deleted)
+
+          }
+       
+        })
+        })
+      
+
+
+
     }
 
 
@@ -13,16 +54,16 @@ const Card = () => {
     return (
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {
-            load.map(data=><div key={data._id}>
+            loads.map(data=><div key={data._id}>
               <div className=" ">
                <div className="card w-80 h-80 bg-base-100 shadow-xl">
                <figure><img src={data.image} alt="Shoes" /></figure>
                <div className="card-body">
                <h2 className="card-title">{data.name}</h2>
                <p>{data.details}</p>
-               
+
                </div>
-               <button onClick={deleteButton}>Delete</button>
+               <button onClick={()=>{deleteButton(data._id)}}>Delete</button>
                </div>
                
                </div>   
