@@ -17,8 +17,8 @@ const Details = () => {
    console.log(data)
    const{user}=useContext(AuthContext)
    const email=user.email
-   const {name,brand,price}=data
-   const cart = {email,name,brand,price}
+   const {name,brand,price,image}=data
+   const cart = {email,name,brand,price,image}
 
   
    const addCardButton=()=>{
@@ -62,8 +62,8 @@ const Details = () => {
             <div className="card-actions justify-end">
             <button onClick={addCardButton} className="btn btn-primary">Add to card </button>
             </div>
-  </div>
-</div>
+            </div>
+            </div>
 
             </div>
      
