@@ -7,7 +7,7 @@ const Brands = () => {
    const loads =useLoaderData()
    const [products,setProducts]=useState(loads)
    useEffect(()=>{
-    fetch('https://brand-shop-server-side-p5i1bal6n.vercel.app/products')
+    fetch('https://brand-shop-server-side-neon.vercel.app/products')
     .then(res=>res.json())
     .then(data=>setProducts(data))
    },[])

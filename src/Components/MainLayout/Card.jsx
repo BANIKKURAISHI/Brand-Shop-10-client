@@ -1,12 +1,36 @@
-import { useState } from "react";
+import { useContext,  useEffect,  useState } from "react";
 import { useLoaderData, } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Card = () => {
-   const load=useLoaderData()
-   console.log(load)
-   const [loads,setLoads]=useState(load)
 
+   
+   const load=useLoaderData()
+   const [loads,setLoads]=useState([])
+   console.log(load)
+   const{user}=useContext(AuthContext)
+   const email=user?.email
+   console.log(email)
+   
+  //const [variables,setVariables]=useState(load)
+  
+  // const [products,setProducts]=useState(load)
+  // useEffect(()=>{
+  //  fetch(`https://brand-shop-server-side-neon.vercel.app/carts/${email}`)
+  //  .then(res=>res.json())
+  //  .then(data=>setProducts(data))
+  // },[])
+
+  
+useEffect(()=>{
+const itemName =load.filter(item=>item.email===email)
+setLoads(itemName)
+},[load,email])
+
+
+   
+  
     const deleteButton=_id=>{
         console.log(_id)
     
@@ -24,7 +48,7 @@ const Card = () => {
        }).then((result) => {
          if (result.isConfirmed)
          console.log('delete confirm ')
-        fetch(`https://brand-shop-server-side-p5i1bal6n.vercel.app/carts/${_id}`,{
+        fetch(`https://brand-shop-server-side-neon.vercel.app/carts/${_id}`,{
           method:"DELETE"
         })
         .then(res=>res.json())
@@ -53,8 +77,10 @@ const Card = () => {
 
     return (
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-        {
-            loads && loads.map(data=><div key={data._id}>
+        { loads.length === 0 ?(
+          <div>No product found</div>
+          ):
+           (loads.map(data=><div key={data._id}>
               <div className=" ">
                <div className="card w-80 h-80 bg-base-100 shadow-xl">
                <figure><img src={data.image} alt="Shoes" /></figure>
@@ -67,7 +93,7 @@ const Card = () => {
                </div>
                
                </div>   
-            </div>)
+            </div>))
         }
         </div>
     );

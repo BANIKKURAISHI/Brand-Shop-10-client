@@ -14,6 +14,7 @@ import Details from "../Pages/Details";
 
 import Update from "./Update";
 import Card from "./Card";
+import UserCard from "../Pages/UserCard";
 
 //import Brands from "../Pages/Brands";
 //import Reg from "../Pages/Reg";
@@ -23,7 +24,7 @@ const myCreateRoute=createBrowserRouter([
      path:"/",
      errorElement:<Error></Error>,
      element:<Home></Home>,
-     loader:()=>fetch('https://brand-shop-server-side-p5i1bal6n.vercel.app/brand'),
+     loader:()=>fetch('https://brand-shop-server-side-neon.vercel.app/brand'),
      children:[
    {
       path:"/",
@@ -53,32 +54,38 @@ const myCreateRoute=createBrowserRouter([
       {
          path:"/products",
          element:<Brands></Brands>,
-         loader:()=>fetch('https://brand-shop-server-side-p5i1bal6n.vercel.app/products')
+         loader:()=>fetch('https://brand-shop-server-side-neon.vercel.app/products')
       },
       {
          path:"/products/:brand",
          element:<Filter></Filter>,
-         loader:({params})=>fetch(`https://brand-shop-server-side-p5i1bal6n.vercel.app/products/${params.brand}`)
+         loader:({params})=>fetch(`https://brand-shop-server-side-neon.vercel.app/products/${params.brand}`)
       },
         
 
       {
          path:"/product/:id",
          element:<Details></Details>,
-         loader:({params})=>fetch(`https://brand-shop-server-side-p5i1bal6n.vercel.app/product/${params.id}`)
+         loader:({params})=>fetch(`https://brand-shop-server-side-neon.vercel.app/product/${params.id}`)
       },
        
       {
          path:'/update/:id',
          element:<Update></Update>,
-         loader:({params})=>fetch(`https://brand-shop-server-side-p5i1bal6n.vercel.app/product/${params.id}`)
+         loader:({params})=>fetch(`https://brand-shop-server-side-neon.vercel.app/product/${params.id}`)
       }, 
       {
          path:'/cart',
-         element:<Card></Card>,
-         loader:()=>fetch('https://brand-shop-server-side-p5i1bal6n.vercel.app/carts')
+         element:<PrivetRoute><Card></Card></PrivetRoute>,
+         loader:()=>fetch('https://brand-shop-server-side-neon.vercel.app/carts')
         
       }, 
+      {
+         path:'/carts/:email',
+         element:<UserCard></UserCard>,
+         loader:({params})=>fetch(`https://brand-shop-server-side-neon.vercel.app/carts/${params.email}`)
+        
+       },
      
 ])
 

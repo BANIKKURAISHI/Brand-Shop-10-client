@@ -12,12 +12,12 @@ const AddProduct = () => {
     const brand=form.brand.value 
     const price=form.price.value 
     const details=form.details.value 
-    const photo=form.photo.value 
+    const image=form.image.value 
     const type=form.type.value 
     const rating=form.rating.value 
-    const together={name,brand,photo,price,details,type,rating}
+    const together={name,brand,image,price,details,type,rating}
     console.log(together)
-    fetch('https://brand-shop-server-side-p5i1bal6n.vercel.app/products',{
+    fetch('https://brand-shop-server-side-neon.vercel.app/products',{
         method:"POST",
         headers:{"content-Type":"application/json"},
         body:JSON.stringify(together)
@@ -98,7 +98,7 @@ const AddProduct = () => {
              <span className="label-text text-2xl text-white">Photo Url</span>
              </label>
         
-             <input type="url" name="photo" placeholder="Enter your photo url" className="text-black  w-96 input border-2 rounded p-3 " required />
+             <input type="url" name="image" placeholder="Enter your photo url" className="text-black  w-96 input border-2 rounded p-3 " required />
              </div>
             
              <div className="my-12 ml-40">

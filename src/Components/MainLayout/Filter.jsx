@@ -18,24 +18,10 @@ const Filter = () => {
     
     const data=useLoaderData()
     
-    //console.log(data)
-    // const [filterItems,setFilterItems]=useState(data)
-    // const {brand}=data 
-    // useEffect(()=>{
-    //     fetch(`https://brand-shop-server-side-p5i1bal6n.vercel.app/products/${brand}`)
-    //     .then(res=>res.json())
-    //     .then(data=>{
-    //      console.log(data)
-    //      const Items=filterItems.filter((obj=>obj.brand===brand))
-    //      setFilterItems(Items)
-    //      console.log(Items)
-    //      } )
-    //    })
-
         return (
         <div className="max-w-7xl mx-auto my-10">
          <Nav></Nav>
-        <Slide></Slide>
+        <Slide></Slide> 
         
         <div className="grid gap-10 my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           
