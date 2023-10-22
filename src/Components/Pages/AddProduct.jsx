@@ -37,7 +37,7 @@ const AddProduct = () => {
              <div className="hero  max-w-7xl text-white  lg:my-10 ">
              <div className="card w-full   bg-base-100">
              <div className="hero-content flex-col ">
-             <form onSubmit={addProductButton} className="w-96  p-8 form-control border-2 shadow-2xl rounded-xl bg-black lg:p-20   md:w-[800px] lg:w-full my-20">
+             <form onSubmit={addProductButton} className="w-96 -mx-4 p-8 form-control border-2 shadow-2xl rounded-xl bg-black lg:p-20   md:w-[800px] lg:w-full my-20">
              <div className="text-center  lg:mb-10">
              <h1 className="text-5xl  font-bold ">Add Your Products</h1>
              </div>
@@ -102,7 +102,7 @@ const AddProduct = () => {
              </div>
             
              <div className="ml-0 md:ml-24 lg:ml-60 my-12" >
-             <input type='submit' className="btn bg-red-400 p-3 w-72 md:w-80 lg:w-96 rounded-lg text-white" value="ADD PRODUCT"/>
+             <input type='submit' className="btn bg-red-400 p-3 w-80 md:w-80 lg:w-96 rounded-lg text-white" value="ADD PRODUCT"/>
              </div>
              </div>
              </form>
