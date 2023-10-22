@@ -53,8 +53,8 @@ const Log = () => {
         <Nav></Nav>
 
 
-        <div className="flex flex-row shadow-2xl ">
-        <div className="mr-16 my-32">
+        <div className="flex flex-col lg:flex-row shadow-2xl ">
+        <div className="mr-1   lg:mr-16 my-32">
         <img className="" src="https://i.ibb.co/FXjKNhP/Login.jpg" alt="" />
         </div>
         <div className="hero ">
@@ -68,18 +68,18 @@ const Log = () => {
         <label className="label">
         <span className="label-text text-xl -mx-1">Email</span>
         </label>
-        <input type="email" name="email" placeholder="Enter your email" className="input border-2 border-blue-400 rounded p-3 mt-3 w-96" required />
+        <input type="email" name="email" placeholder="Enter your email" className="input border-2 border-blue-400 rounded p-3 mt-3 w-80  md:w-96 lg:w-96" required />
         </div>
          <div className="form-control">
         <label className="label">
         <span className="label-text text-xl -mx-1">Password</span>
         </label>
-        <input type="password" name="password" placeholder="password" className="input border-2 border-blue-400 rounded p-3 mt-3 w-96" required />
+        <input type="password" name="password" placeholder="password" className="input border-2 border-blue-400 rounded p-3 mt-3 w-80 md:w-96  lg:w-96" required />
         </div>
          <div className="form-control mt-6">
         <button className="btn btn-primary p-3 border-blue-400 bg-green-400 w-full rounded-md text-xl">Login</button>
         <br/>
-        <button onClick={googleButton} className="btn btn-primary p-3 border-blue-400  mt-3 bg-green-400  w-full rounded-md text-xl flex flex-row"><span className="my-1 ml-24 mr-2"><FcGoogle></FcGoogle></span><span >Login with Google</span></button>
+        <button onClick={googleButton} className="btn btn-primary  border-blue-400   bg-green-400  w-full mt-3 p-3 rounded-md text-xl flex flex-row"><span className="my-1 lg:ml-24 mr-2"><FcGoogle></FcGoogle></span><span >Login with Google</span></button>
         </div>
         <h1 className="text-xl">New Here?<Link to="/reg" className="text-blue-700 border-blue-400 hover:underline"><button>Registration</button></Link></h1>
         </form>

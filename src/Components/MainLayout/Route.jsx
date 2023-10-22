@@ -14,7 +14,7 @@ import Details from "../Pages/Details";
 
 import Update from "./Update";
 import Card from "./Card";
-import UserCard from "../Pages/UserCard";
+//import UserCard from "../Pages/UserCard";
 
 //import Brands from "../Pages/Brands";
 //import Reg from "../Pages/Reg";
@@ -80,12 +80,7 @@ const myCreateRoute=createBrowserRouter([
          loader:()=>fetch('https://brand-shop-server-side-neon.vercel.app/carts')
         
       }, 
-      {
-         path:'/carts/:email',
-         element:<UserCard></UserCard>,
-         loader:({params})=>fetch(`https://brand-shop-server-side-neon.vercel.app/carts/${params.email}`)
-        
-       },
+     
      
 ])
 

@@ -3,7 +3,7 @@
 const Footer = () => {
     return (
           <div className=" text-white mx-auto my-10 rounded-b-lg bg-gradient-to-r from-blue-400 to-red-500 max-w-7xl">
-          <footer className="footer  p-10 text-base-content grid grid-cols-1 lg:grid-cols-3 ">
+          <footer className="footer  p-10 text-base-content grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 ">
           <nav className="flex flex-col">
           <header className="footer-title text-2xl mb-2">Which is given</header> 
           <a className="link link-hover mb-1 text-xl">Electronics</a>
@@ -32,8 +32,8 @@ const Footer = () => {
 
 
 
-           <footer className="footer footer-center p-4 text-base-content ">
-           <aside className="flex flex-row">
+           <footer className="footer footer-center  text-base-content lg:p-4">
+           <aside className="flex flex-col md:flex-row">
            <h1>Copyright © 2023 - All right reserved by </h1>
             <img src="https://i.ibb.co/R26cnWP/on-dark-background.jpg" className="h-7 w-7 rounded-full ml-3 mr-3"  /> 
             <h1>AB Industries Ltd</h1>

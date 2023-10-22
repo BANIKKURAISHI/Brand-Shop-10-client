@@ -34,11 +34,11 @@ const AddProduct = () => {
            
              <div className="max-w-7xl mx-auto   ">
              <Nav></Nav>
-             <div className="hero max-w-7xl text-white  my-10 ">
-             <div className="card  w-full h-[900px]   bg-base-100">
-             <div className="hero-content flex-col">
-             <form onSubmit={addProductButton} className=" my-20 form-control border-2 shadow-2xl rounded-xl p-20  bg-black">
-             <div className="text-center mb-10">
+             <div className="hero  max-w-7xl text-white  lg:my-10 ">
+             <div className="card w-full   bg-base-100">
+             <div className="hero-content flex-col ">
+             <form onSubmit={addProductButton} className="w-96  p-8 form-control border-2 shadow-2xl rounded-xl bg-black lg:p-20   md:w-[800px] lg:w-full my-20">
+             <div className="text-center  lg:mb-10">
              <h1 className="text-5xl  font-bold ">Add Your Products</h1>
              </div>
              <div className='grid grid-cols-1 md:grid-cols-2'>
@@ -48,39 +48,39 @@ const AddProduct = () => {
              <span className="label-text text-2xl text-white">Product Name</span>
              </label>
              
-             <input type="text" name="name" placeholder="Enter your product name" className="text-black input  border-2 rounded p-3  w-96" required />
+             <input type="text" name="name" placeholder="Enter your product name" className="text-black input  border-2 rounded p-3 w-80 md:w-80 lg:w-96" required />
              </div>
              <div className="form-control">
              <label className="label">
              <span className="label-text text-2xl text-white">Brand Name</span>
              </label>
          
-             <input type="text" name="brand" placeholder="Enter your product name" className=" text-black input border-2 rounded p-3  w-96" required />
+             <input type="text" name="brand" placeholder="Enter your product name" className=" text-black input border-2 rounded p-3  w-80 md:w-80 lg:w-96" required />
              </div>
              <div className="form-control">
              <label className="label">
              <span className="label-text text-2xl text-white">Product Types</span>
              </label>
         
-             <input type="text" name="type" placeholder="Enter your product name" className="text-black input border-2 rounded p-3  w-96" required />
+             <input type="text" name="type" placeholder="Enter your product name" className="text-black input border-2 rounded p-3  w-80 md:w-80 lg:w-96" required />
              </div>
              </div>
 
 
-             <div className="flex flex-col ml-20">
+             <div className="flex flex-col  ml-0 md:ml-12 lg:ml-20">
              <div className="form-control">
              <label className="label">
              <span className="label-text text-2xl text-white">Price</span>
              </label>
             
-             <input type="text" name="price" placeholder="Enter your product price" className="text-black  w-96 input border-2 rounded p-3 " required />
+             <input type="text" name="price" placeholder="Enter your product price" className="text-black  w-80 md:w-80 lg:w-96 input border-2 rounded p-3 " required />
              </div>
              <div className="form-control">
              <label className="label">
              <span className="label-text text-2xl text-white">Details</span>
              </label>
             
-             <input type="text" name="details" placeholder="Enter your product details" className="text-black  w-96 input border-2 rounded p-3 " required />
+             <input type="text" name="details" placeholder="Enter your product details" className="text-black  w-80 md:w-80 lg:w-96 input border-2 rounded p-3 " required />
              </div>
              
              <div className="form-control">
@@ -88,21 +88,21 @@ const AddProduct = () => {
              <span className="label-text text-2xl text-white">Ratting</span>
              
              </label>
-             <input type="text" name="rating" placeholder="Enter your " className="text-black  w-96 input border-2 rounded p-3 " required />
+             <input type="text" name="rating" placeholder="Enter your " className="text-black  w-80 md:w-80 lg:w-96 input border-2 rounded p-3 " required />
              </div>
              </div>
              </div>
-             <div className='flex flex-row'>
+             <div className='flex flex-col md:flex-row'>
              <div className="form-control">
              <label className="label">
              <span className="label-text text-2xl text-white">Photo Url</span>
              </label>
         
-             <input type="url" name="image" placeholder="Enter your photo url" className="text-black  w-96 input border-2 rounded p-3 " required />
+             <input type="url" name="image" placeholder="Enter your photo url" className="text-black  w-80 md:w-80 lg:w-96 input border-2 rounded p-3 " required />
              </div>
             
-             <div className="my-12 ml-40">
-             <input type='submit' className="btn bg-red-400 p-3 w-96 rounded-lg text-white" value="ADD PRODUCT"/>
+             <div className="ml-0 md:ml-24 lg:ml-60 my-12" >
+             <input type='submit' className="btn bg-red-400 p-3 w-72 md:w-80 lg:w-96 rounded-lg text-white" value="ADD PRODUCT"/>
              </div>
              </div>
              </form>

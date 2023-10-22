@@ -18,9 +18,10 @@ const Home = () => {
       <div className="">
         <Home2></Home2>
       </div>
-      <div className="max-w-7xl mx-auto flex flex-row justify-center text-white my-5">
-        <BsGift className="text-5xl mx-10 my-1"></BsGift>
-        <h2 className="text-4xl my-3">Our All Brands</h2>
+      <div className="max-w-7xl mx-auto flex  flex-col text-black my-5 md:flex-col  lg:flex-col ">
+        <BsGift className="text-5xl mx-32 my-1 md:mx-auto lg:mx-auto"></BsGift>
+        <h2 className="text-4xl mx-10 md:mx-auto lg:mx-auto">Which Brands Product you need</h2> <br/>
+        <h2 className="-mt-4 mx-10  md:mx-auto lg:mx-auto">Choose Your favorite one</h2>
       </div>
       {/* <> */}
       {/* {use.length > 0 && 
@@ -37,7 +38,7 @@ const Home = () => {
              </div>
                )} */}
 
-      <div className="grid gap-10  grid-cols-1 md:grid-cols-3 lg:grid-cols-3 my-5 mx-10">
+      <div className="max-w-7xl mx-7 grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3   my-5 ">
         {use.map((brand) => (
           <div key={brand._id} value={brand}>
             <Link to={`products/${brand.brand}`}>
@@ -57,7 +58,10 @@ const Home = () => {
           </div>
         ))}
       </div>
+      <div className="my-20">
       <Brands></Brands>
+      </div>
+    
       <Why></Why>
       <Outlet></Outlet>
     </div>
