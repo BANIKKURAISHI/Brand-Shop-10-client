@@ -65,13 +65,13 @@ const myCreateRoute=createBrowserRouter([
 
       {
          path:"/product/:id",
-         element:<Details></Details>,
+         element:<PrivetRoute><Details></Details></PrivetRoute>,
          loader:({params})=>fetch(`https://brand-shop-server-side-neon.vercel.app/product/${params.id}`)
       },
        
       {
          path:'/update/:id',
-         element:<Update></Update>,
+         element:<PrivetRoute><Update></Update></PrivetRoute>,
          loader:({params})=>fetch(`https://brand-shop-server-side-neon.vercel.app/product/${params.id}`)
       }, 
       {

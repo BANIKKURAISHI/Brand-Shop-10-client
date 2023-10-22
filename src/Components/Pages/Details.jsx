@@ -55,8 +55,8 @@ const Details = () => {
            <div className="max-w-7xl mx-auto">
             <Nav></Nav>
             <div>
-            <div className="card w-[500px] bg-green-100 shadow-xl">
-            <figure><img src={image} alt="Shoes" /></figure>
+            <div className="card w-96 bg-blue-400 shadow-xl md:w-[800px] lg:w-[1280px]" >
+            <figure><img className="rounded-lg" src={image} alt="Shoes" /></figure>
             <div className="card-body">
             <h2 className="card-title">{name}</h2>
             <p>{Details}</p>

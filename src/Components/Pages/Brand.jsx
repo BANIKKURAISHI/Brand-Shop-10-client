@@ -10,7 +10,7 @@ const Brand = ({load}) => {
          
            <div className='max-w-7xl mx-auto'>
           
-           <div className="card w-72 h-72 bg-black shadow-xl  text-white">
+           <div className="card w-72 h-72 bg-blue-400 shadow-xl  text-white">
            <figure><img className='w-full h-60 rounded-t-xl' src={image}alt="Shoes" /></figure>
            <div className="card-body">
             <div className='flex flex-row'>

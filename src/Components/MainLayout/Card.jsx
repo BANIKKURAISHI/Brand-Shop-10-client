@@ -2,6 +2,7 @@ import { useContext,  useEffect,  useState } from "react";
 import { useLoaderData, } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import Nav from "../Nav and Footer/Nav";
 
 const Card = () => {
 
@@ -27,8 +28,14 @@ useEffect(()=>{
 const itemName =load.filter(item=>item.email===email)
 setLoads(itemName)
 },[load,email])
-
-
+   
+const purchaseButton=()=>{
+  Swal.fire(
+    'Deleted!',
+    'Your Product has been purchase.',
+    'success'
+  )
+}
    
   
     const deleteButton=_id=>{
@@ -39,7 +46,7 @@ setLoads(itemName)
     
      Swal.fire({
          title: 'Are you sure?',
-         text: "You won't be able to revert this!",
+         text: " Deleted your cart!",
          icon: 'warning',
          showCancelButton: true,
          confirmButtonColor: '#3085d6',
@@ -57,7 +64,7 @@ setLoads(itemName)
           if(data.deletedCount>0){
             Swal.fire(
               'Deleted!',
-              'Your coffee has been deleted.',
+              'Your cart has been deleted.',
               'success'
             )
           const deleted=loads.filter((item=>item._id!==_id))
@@ -76,25 +83,42 @@ setLoads(itemName)
 
 
     return (
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <div className="max-w-7xl mx-auto">
+        <Nav></Nav>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         { loads.length === 0 ?(
-          <div>No product found</div>
+          <div className="card w-96 h-60 bg-blue-400 rounded-lg my-10 md:w-[800px]   lg:w-[1280px] " >
+          <div className="text-3xl text-white text-center my-16">
+          <h1>You Have Not Add Any Products </h1>
+          <h2>Please Add Any Product</h2>
+          </div>
+          
+          </div>
           ):
            (loads.map(data=><div key={data._id}>
-              <div className=" ">
-               <div className="card w-80 h-80 bg-base-100 shadow-xl">
-               <figure><img src={data.image} alt="Shoes" /></figure>
+              <div className="my-10 ">
+               <div className="w-80  mx-7 p-10 bg-blue-400 rounded-md shadow-xl md:96 lg:96">
+               <figure><img className="w-full h-72 rounded-md" src={data.image} alt="Shoes" /></figure>
                <div className="card-body">
-               <h2 className="card-title">{data.name}</h2>
-               <p>{data.details}</p>
-
+               <h2 className="card-title  text-2xl text-white ">{data.name}</h2>
+               <div className="flex flex-row justify-between text-white">
+               <h2 className="text-2xl">{data.brand}</h2>
+               <h2 className="text-2xl">{data.price}</h2>
                </div>
-               <button onClick={()=>{deleteButton(data._id)}}>Delete</button>
+              
+              
+               </div>
+               <div className="flex flex-row justify-center ">
+               <button className="btn btn-primary bg-green-500 mr-10"  onClick={()=>{deleteButton(data._id)}}>DELETE</button>
+               <button className="btn btn-primary bg-green-500" onClick={purchaseButton}>PURCHASE</button>
+               </div>
+               
                </div>
                
                </div>   
             </div>))
         }
+        </div>
         </div>
     );
 };

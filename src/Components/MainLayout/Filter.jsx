@@ -62,6 +62,19 @@ const Filter = () => {
            </div>
            </div>
         </div>)}
+        {
+          data.length ===0 && (
+            
+          <div className="card w-96 h-60 bg-blue-400 rounded-lg my-10 md:w-[800px]   lg:w-[1280px] " >
+          <div className="text-3xl text-white text-center my-24">
+          <h1>There are no product available Now </h1>
+        
+          </div>
+          </div>
+            
+          )  
+        }
+
         </div>
        
        </div>
