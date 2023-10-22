@@ -7,7 +7,7 @@ const Brands = () => {
    const loads =useLoaderData()
    const [products,setProducts]=useState(loads)
    useEffect(()=>{
-    fetch('http://localhost:5000/products')
+    fetch('https://brand-shop-server-side-p5i1bal6n.vercel.app/products')
     .then(res=>res.json())
     .then(data=>setProducts(data))
    },[])
@@ -23,7 +23,7 @@ const Brands = () => {
         <div className="grid gap-4 grid-cols-1  md:grid-cols-2 lg:grid-cols-4">
           
         {
-         products.map(load=><Brand key={load._id} load={load}></Brand>)   
+        products && products.map(load=><Brand key={load._id} load={load}></Brand>)   
         }
         </div>
     

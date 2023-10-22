@@ -31,7 +31,7 @@ const Home = () => {
            <div className="grid gap-10  grid-cols-1 md:grid-cols-3 lg:grid-cols-3 my-5 mx-10">
            
            {   
-               use.map(brand=><div key={brand._id} value={brand} >
+               use && use.map(brand=><div key={brand._id} value={brand} >
                <Link to={`products/${brand.brand}`}>
                <div className="card w-80 h-72 bg-[#8ea1b4] shadow-xl">
                <figure><img className="w-80 h-60" src={brand.img} alt="Brand" /></figure>

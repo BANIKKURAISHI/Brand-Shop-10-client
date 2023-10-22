@@ -17,7 +17,7 @@ const AddProduct = () => {
     const rating=form.rating.value 
     const together={name,brand,photo,price,details,type,rating}
     console.log(together)
-    fetch('http://localhost:5000/products',{
+    fetch('https://brand-shop-server-side-p5i1bal6n.vercel.app/products',{
         method:"POST",
         headers:{"content-Type":"application/json"},
         body:JSON.stringify(together)

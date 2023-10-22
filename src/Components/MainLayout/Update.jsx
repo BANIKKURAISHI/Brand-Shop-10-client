@@ -26,7 +26,7 @@ const Update = () => {
         const photo=form.photo.value 
         const update={name,brand,type,details,price,rating,photo}
         console.log(update)
-        fetch(`http://localhost:5000/product/${id}`,{
+        fetch(`https://brand-shop-server-side-p5i1bal6n.vercel.app/product/${id}`,{
         method:"PUT",
         headers:{"content-type":"application/json"},
         body:JSON.stringify(update)

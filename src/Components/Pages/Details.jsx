@@ -17,12 +17,12 @@ const Details = () => {
    console.log(data)
    const{user}=useContext(AuthContext)
    const email=user.email
-   const {name,brand,price,image}=data
-   const cart = {email,name,brand,price,image}
+   const {name,brand,price,image,details}=data
+   const cart = {email,name,brand,price,image,details}
 
   
    const addCardButton=()=>{
-    fetch('http://localhost:5000/carts',{
+    fetch('https://brand-shop-server-side-p5i1bal6n.vercel.app/carts',{
       method:"POST",
       headers:{"content-Type":"application/json"},
       body:JSON.stringify(cart )
@@ -36,14 +36,7 @@ const Details = () => {
 
 
 
-  // useEffect(()=>{
-   
-  //   fetch(`http://localhost:5000/product/${id}`)
-  //   .then(res=>res.json())
-  //   .then(data=>{
-  //     console.log(data)
-  //   })
-  // })
+
 
   
   
@@ -60,7 +53,7 @@ const Details = () => {
             <h2 className="card-title">{data.name}</h2>
             <p>{data.details}</p>
             <div className="card-actions justify-end">
-            <button onClick={addCardButton} className="btn btn-primary">Add to card </button>
+            <button onClick={addCardButton} className="btn btn-primary">Add to card</button>
             </div>
             </div>
             </div>

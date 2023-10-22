@@ -23,7 +23,7 @@ const myCreateRoute=createBrowserRouter([
      path:"/",
      errorElement:<Error></Error>,
      element:<Home></Home>,
-     loader:()=>fetch('http://localhost:5000/brand'),
+     loader:()=>fetch('https://brand-shop-server-side-p5i1bal6n.vercel.app/brand'),
      children:[
    {
       path:"/",
@@ -53,30 +53,30 @@ const myCreateRoute=createBrowserRouter([
       {
          path:"/products",
          element:<Brands></Brands>,
-         loader:()=>fetch('http://localhost:5000/products')
+         loader:()=>fetch('https://brand-shop-server-side-p5i1bal6n.vercel.app/products')
       },
       {
          path:"/products/:brand",
          element:<Filter></Filter>,
-         loader:({params})=>fetch(`http://localhost:5000/products/${params.brand}`)
+         loader:({params})=>fetch(`https://brand-shop-server-side-p5i1bal6n.vercel.app/products/${params.brand}`)
       },
         
 
       {
          path:"/product/:id",
          element:<Details></Details>,
-         loader:({params})=>fetch(`http://localhost:5000/product/${params.id}`)
+         loader:({params})=>fetch(`https://brand-shop-server-side-p5i1bal6n.vercel.app/product/${params.id}`)
       },
        
       {
          path:'/update/:id',
          element:<Update></Update>,
-         loader:({params})=>fetch(`http://localhost:5000/product/${params.id}`)
+         loader:({params})=>fetch(`https://brand-shop-server-side-p5i1bal6n.vercel.app/product/${params.id}`)
       }, 
       {
          path:'/cart',
          element:<Card></Card>,
-         loader:()=>fetch('http://localhost:5000/carts')
+         loader:()=>fetch('https://brand-shop-server-side-p5i1bal6n.vercel.app/carts')
         
       }, 
      

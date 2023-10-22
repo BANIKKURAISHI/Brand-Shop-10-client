@@ -24,7 +24,7 @@ const Card = () => {
        }).then((result) => {
          if (result.isConfirmed)
          console.log('delete confirm ')
-        fetch(`http://localhost:5000/carts/${_id}`,{
+        fetch(`https://brand-shop-server-side-p5i1bal6n.vercel.app/carts/${_id}`,{
           method:"DELETE"
         })
         .then(res=>res.json())
@@ -36,7 +36,7 @@ const Card = () => {
               'Your coffee has been deleted.',
               'success'
             )
-          const deleted=load.filter((item=>item._id!==_id))
+          const deleted=loads.filter((item=>item._id!==_id))
           setLoads(deleted)
 
           }
@@ -54,7 +54,7 @@ const Card = () => {
     return (
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
         {
-            loads.map(data=><div key={data._id}>
+            loads && loads.map(data=><div key={data._id}>
               <div className=" ">
                <div className="card w-80 h-80 bg-base-100 shadow-xl">
                <figure><img src={data.image} alt="Shoes" /></figure>

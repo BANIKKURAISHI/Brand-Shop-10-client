@@ -22,7 +22,7 @@ const Filter = () => {
     // const [filterItems,setFilterItems]=useState(data)
     // const {brand}=data 
     // useEffect(()=>{
-    //     fetch(`http://localhost:5000/products/${brand}`)
+    //     fetch(`https://brand-shop-server-side-p5i1bal6n.vercel.app/products/${brand}`)
     //     .then(res=>res.json())
     //     .then(data=>{
     //      console.log(data)
@@ -39,7 +39,7 @@ const Filter = () => {
         
         <div className="grid gap-10 my-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           
-        {data.map(product=><div key={product._id}>
+        {data && data.map(product=><div key={product._id}>
            <div className="card w-80 bg-black shadow-xl  text-white">
            <figure><img className='w-80 h-60' src={product.image}alt="Shoes" /></figure>
            <div className="card-body">
