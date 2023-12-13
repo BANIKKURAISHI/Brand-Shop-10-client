@@ -17,6 +17,7 @@ import { AiFillDollarCircle } from "react-icons/ai"
 const Filter = () => {
     
     const data=useLoaderData()
+    console.log(data)
     
         return (
         <div className="max-w-7xl mx-auto my-10">
