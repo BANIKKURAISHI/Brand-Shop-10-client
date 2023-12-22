@@ -1,5 +1,6 @@
 # React + Vite
 // Live Link : // https://brand-shop-client-b7f15.web.app
+//Live Lin (vercel) :https://brand-shop-10-client.vercel.app/
 <li>Assalamu Alikum</li>
 
 <li>Now I want to discuss my project features </li>
